@@ -1,6 +1,6 @@
-# Hundir-la-Flota
+# **HUNDIR LA FLOTA**
 
-¡Bienvenido a **HUNDIR LA FLOTA**! 
+¡Bienvenido a la guerra en el gran azul! 
 
 Es una versión del clásico juego de estrategia naval, con la peculiaridad de que **los barcos se pueden colocar en diagonal**. 🎉
 

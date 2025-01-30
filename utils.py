@@ -4,7 +4,7 @@ import random
 def creartablero(tamano=10):
     return numpy.full((tamano, tamano), "_")
 '''
-Creamos el tablero con numpy. Me da error si intento importarlo as np asi que sin abreviar
+Creamos el tablero con numpy.
 '''
 
 def crearbarco(eslora):
@@ -25,18 +25,14 @@ def crearbarco(eslora):
             barco.append(casilla)
         if len(barco) == eslora:
             return barco
-        '''
-        Como me he "basado en la plantilla de clase, me he complicado un poco incluyendo el diagonal
-        '''       
-
+       
 def barcos(lista_barcos=[]):
     esloras = [2, 2, 2, 3, 3, 4]
     for eslora in esloras:
         lista_barcos.append(crearbarco(eslora))
     return lista_barcos
 '''
-Una funcion para que, por cada unidad en la lista de 
-esloras reproduzca pares de coordenadas, y los liste
+Una funcion para que, por cada unidad en la lista de esloras reproduzca pares de coordenadas, y los liste.
 '''
 
 def colocarbarcos(tablero, lista_barcos):
@@ -48,17 +44,17 @@ def colocarbarcos(tablero, lista_barcos):
     return tablero
 '''
 Intento de conseguir que convierta las coordenadas de los barcos en casillas 
-y al mismo tiempo compruebe que si se hay dos barcos en una casilla se haga otra nueva lista
+y al mismo tiempo, compruebe que, si hay dos barcos en una misma casilla, se elabore otra nueva lista.
 '''
 
 def verificar_hundido(barco, tablero):
     return all(tablero[casilla[0], casilla[1]] == "X" for casilla in barco)
 '''
-Por el bien de mi ordenador, una funcion para poder terminar la partida 
+Una funcion para poder terminar la partida. 
 '''
 
 def creatableros(barcosj1, barcoscpu):
-    tableroj = creartablero(10)
+    tableroj = creartablero(310)
     tablerocpu = creartablero(10)
     
     tableroj = colocarbarcos(tableroj, barcosj1)
@@ -66,7 +62,7 @@ def creatableros(barcosj1, barcoscpu):
     
     return tableroj, tablerocpu
 '''
-Antes de empezar el juego, que compruebe que coloque los barcos ya comprobados
+Antes de empezar el juego, que coloque los barcos ya comprobados
 '''
 
 def disparar(casilla, tablero):
@@ -76,10 +72,7 @@ def disparar(casilla, tablero):
     else:
         tablero[casilla] = "A"
         return "AGUA"
-'''
-Me ha costado, pero con lo del ahorcado y ayuda hemos podido desarrollar
-las funciones de disparar y los turnos. si DISPARO A LO DISPARADO
-'''
+
 
 def disparo_jugador(tablero_cpu, barcos_cpu):
     errores = 0
@@ -101,12 +94,12 @@ def disparo_jugador(tablero_cpu, barcos_cpu):
                 print("Coordenadas fuera del mapa. Inténtalo de nuevo.")
         except ValueError:
             errores += 1
-            print("QUE DICES. Números por favor.")
+            print("Introduzca únicamente números por favor.")
             if errores >= 3:
                 print("Demasiados errores. Saliendo del juego.")
                 exit()
             '''
-            mucho he tardado en poner una forma simple para salir del juego.
+            Una forma simple para salir del juego.
             '''    
 
 def disparo_cpu(tablero_jugador, barcos_jugador):
@@ -126,7 +119,7 @@ def disparo_cpu(tablero_jugador, barcos_jugador):
 def vista_oculta(tablero):
     tablero_mostrar = numpy.where(tablero == "-", "A", tablero)
     return numpy.where(numpy.isin(tablero_mostrar, ["X", "A"]), tablero_mostrar, "_")
-#una funcion para que antes de los disparos muestre el mapa del contrario con los barcos ocultos y solo muestre los dispareoa
+#Una funcion para que antes de los disparos muestre el mapa del contrario con los barcos ocultos y solo muestre los dispareoa
 
 def hundirflota():
     barcosj1 = barcos()
